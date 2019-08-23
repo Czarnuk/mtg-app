@@ -1,0 +1,28 @@
+ESLint and clean project:
+1.) Create project:
+ng new project-name-app --skipTests=true
+2.) Connect to GitHub:
+git remote add origin https://github.com/githubusername/application
+git push -u origin master
+3.) Download ESLint:
+npm install eslint --save-dev
+4.) Add ESLint configuration into project:
+.\node_modules\.bin\eslint --init
+Answer the questions:
+? How would you like to use ESLint? 														        -> To check syntax, find problems, and enforce code style
+? What type of modules does your project use?												        -> JavaScript modules (import/export)
+? Which framework does your project use? 													        -> None of these
+? Where does your code run? (Press <space> to select, <a> to toggle all, <i> to invert selection)	-> Browser
+? How would you like to define a style for your project? 											-> Use a popular style guide
+? Which style guide do you want to follow? 													        -> Airbnb (https://github.com/airbnb/javascript)
+? What format do you want your config file to be in? 												-> JSON
+? Would you like to install them now with npm? (Y/n) 												-> y
+5.) Chect if exist some problems and resolve them:
+.\node_modules\.bin\eslint .
+.\node_modules\.bin\eslint . --fix
+6.) Add .js file and check if everything is ok (only js files).
+https://www.npmjs.com/package/@typescript-eslint/eslint-plugin
+-> npm i @typescript-eslint/parser
+-> npm i @typescript-eslint/eslint-plugin --save-dev
+
+FINALLY YOU HAVE ESLINT FOR TS AND JS
