@@ -18,5 +18,12 @@
         "linebreak-style": 0
     },
     "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint"]
+    "plugins": ["@typescript-eslint"],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    }
 }
