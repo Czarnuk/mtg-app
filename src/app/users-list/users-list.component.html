@@ -1,0 +1,15 @@
+
+<table class="table">
+  <thead>
+    <th>Lp.</th>
+    <th>Nick</th>
+    <th>Points</th>
+  </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.lp }}</td>
+        <td>{{ user.nick }}</td>
+        <td>{{ user.points }}</td>
+      </tr>
+    </tbody>
+</table>
