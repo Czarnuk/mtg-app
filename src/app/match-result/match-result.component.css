@@ -1,0 +1,17 @@
+.mr-container{
+    text-align: center;
+    background-color: ghostwhite;
+    width: 100%;
+    margin: 0;
+}
+.row{
+    padding: 10px;
+    width: 100%;
+    margin: 0;
+}
+.match-result-label-container{
+    width: 100%;
+}
+.match-result-label{
+    width: 50%;
+}
