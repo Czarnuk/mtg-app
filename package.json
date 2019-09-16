@@ -23,6 +23,7 @@
     "@ng-select/ng-select": "^3.0.7",
     "@typescript-eslint/parser": "^2.0.0",
     "ngx-bootstrap": "^5.1.1",
+    "node-static": "^0.7.11",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
