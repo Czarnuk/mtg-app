@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
-import { users } from '../module/users';
+/* eslint-disable no-unused-vars */
+import { Component, OnInit } from '@angular/core';
+import { User } from '../module/user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css'],
 })
-// eslint-disable-next-line import/prefer-default-export
-export class UsersListComponent {
-  users = users;
+export class UsersListComponent implements OnInit {
+  constructor(private userService: UserService) {}
+
+  users: User[];
+
+  ngOnInit() {
+    this.getUsers();
+  }
+
+  getUsers(): void {
+    this.users = this.userService.getUsers();
+  }
 }

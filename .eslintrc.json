@@ -15,7 +15,10 @@
         "sourceType": "module"
     },
     "rules": {
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "import/prefer-default-export": "off",
+        "no-useless-constructor": "off",
+        "no-empty-function": "off"
     },
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"],
