@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
-import { Component } from '@angular/core';
-import { categories } from '../module/categories';
-import { users } from '../module/users';
+import { Component, OnInit } from '@angular/core';
+import { Category } from '../module/category';
+import { User } from '../module/user';
+import { CategoryService } from '../category.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-match-result',
@@ -10,7 +12,23 @@ import { users } from '../module/users';
 })
 // eslint-disable-next-line import/prefer-default-export
 export class MatchResultComponent {
-  categories = categories;
+  constructor(private categoryService: CategoryService,
+              private userService: UserService) {}
 
-  users = users;
+  categories:Category[];
+
+  users: User[];
+
+  ngOnInit() {
+    this.getCategories();
+    this.getUsers();
+  }
+
+  getCategories(): void {
+    this.categories = this.categoryService.getCategories();
+  }
+
+  getUsers(): void {
+    this.users = this.userService.getUsers();
+  }
 }
