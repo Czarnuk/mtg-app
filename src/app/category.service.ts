@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { Category } from './module/category';
 import { CATEGORIES } from './mock/mock-categories';
@@ -9,7 +10,7 @@ import { CATEGORIES } from './mock/mock-categories';
 })
 export class CategoryService {
   // eslint-disable-next-line class-methods-use-this
-  getCategories(): Category[] {
-    return CATEGORIES;
+  getCategories(): Observable<Category[]> {
+    return of(CATEGORIES);
   }
 }
