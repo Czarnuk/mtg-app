@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { User } from './module/user';
 import { USERS } from './mock/mock-users';
@@ -9,7 +10,7 @@ import { USERS } from './mock/mock-users';
 })
 export class UserService {
   // eslint-disable-next-line class-methods-use-this
-  getUsers(): User[] {
-    return USERS;
+  getUsers(): Observable<User[]> {
+    return of(USERS);
   }
 }

@@ -25,10 +25,12 @@ export class MatchResultComponent {
   }
 
   getCategories(): void {
-    this.categories = this.categoryService.getCategories();
+    this.categoryService.getCategories()
+      .subscribe(categories => this.categories = categories);
   }
 
   getUsers(): void {
-    this.users = this.userService.getUsers();
+    this.userService.getUsers()
+      .subscribe(users => this.users = users);
   }
 }
