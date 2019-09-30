@@ -1,16 +1,20 @@
 /* eslint-disable no-unused-vars */
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 import { Category } from './module/category';
-import { CATEGORIES } from './mock/mock-categories';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  // eslint-disable-next-line class-methods-use-this
+  private url = 'http://localhost:8000';
+
+  constructor(private http: HttpClient) { }
+
   getCategories(): Observable<Category[]> {
-    return of(CATEGORIES);
+    return this.http.get<Category[]>(`${this.url}/get-categories`);
   }
 }

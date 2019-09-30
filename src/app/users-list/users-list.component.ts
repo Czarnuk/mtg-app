@@ -1,3 +1,5 @@
+/* eslint-disable no-return-assign */
+/* eslint-disable arrow-parens */
 /* eslint-disable no-unused-vars */
 import { Component, OnInit } from '@angular/core';
 import { User } from '../module/user';
