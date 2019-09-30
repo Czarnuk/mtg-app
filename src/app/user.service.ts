@@ -1,16 +1,19 @@
 /* eslint-disable no-unused-vars */
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { User } from './module/user';
-import { USERS } from './mock/mock-users';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  // eslint-disable-next-line class-methods-use-this
+  private url = 'http://localhost:8000';
+
+  constructor(private http: HttpClient) { }
+
   getUsers(): Observable<User[]> {
-    return of(USERS);
+    return this.http.get<User[]>(`${this.url}/get-users`);
   }
 }
