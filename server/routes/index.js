@@ -1,5 +1,8 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 const express = require('express');
+const sql = require('../query');
+
 
 const router = express.Router();
 
@@ -8,22 +11,23 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/get-users', (req, res, next) => {
-  const users = [
-    { lp: 1, points: 50, nick: 'Morgoth' },
-    { lp: 2, points: 40, nick: 'Grubby' },
-    { lp: 3, points: 30, nick: 'Krollu' },
-  ];
-
-  res.send(users);
+  const usersStandings = [];
+  sql.query('select u.name, s.points from dbo.[user] u join dbo.standings s on s.id = u.standings_id join dbo.category c on c.id = s.category_id where c.type = \'Tournament\' order by points desc').then((rows) => {
+    rows.forEach((element) => {
+      usersStandings.push(element);
+    });
+    res.send(usersStandings);
+  });
 });
-
 router.get('/get-categories', (req, res, next) => {
-  const categories = [
-    { id: 1, type: 'Friendly' },
-    { id: 2, type: 'Tournament' },
-  ];
+  const categories = [];
 
-  res.send(categories);
+  sql.query('select type from dbo.category').then((rows) => {
+    rows.forEach((element) => {
+      categories.push(element);
+    });
+    res.send(categories);
+  });
 });
 
 module.exports = router;

@@ -1,7 +1,5 @@
 export class User {
-  lp: number;
+  name: string;
 
   points: number;
-
-  nick: string;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable no-unused-vars */
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../module/category';
@@ -26,11 +27,11 @@ export class MatchResultComponent {
 
   getCategories(): void {
     this.categoryService.getCategories()
-      .subscribe(categories => this.categories = categories);
+      .subscribe((categories) => this.categories = categories);
   }
 
   getUsers(): void {
     this.userService.getUsers()
-      .subscribe(users => this.users = users);
+      .subscribe((users) => this.users = users);
   }
 }

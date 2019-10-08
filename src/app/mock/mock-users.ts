@@ -2,7 +2,7 @@
 import { User } from '../module/user';
 
 export const USERS: User[] = [
-  { lp: 1, points: 50, nick: 'Morgoth' },
-  { lp: 2, points: 40, nick: 'Grubby' },
-  { lp: 3, points: 30, nick: 'Krollu' },
+  { name: 'Morgoth', points: 50 },
+  { name: 'Grubby', points: 40 },
+  { name: 'Happy', points: 30 },
 ];
