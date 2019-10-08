@@ -6,9 +6,9 @@
     <th>Points</th>
   </thead>
     <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.lp }}</td>
-        <td>{{ user.nick }}</td>
+      <tr *ngFor="let user of users; index as i;">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.name }}</td>
         <td>{{ user.points }}</td>
       </tr>
     </tbody>
