@@ -16,4 +16,8 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.url}/get-users`);
   }
+
+  updateUser(winner): Observable<any> {
+    return this.http.post(`${this.url}/add-points`, winner);
+  }
 }
