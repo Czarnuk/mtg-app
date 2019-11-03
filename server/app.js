@@ -1,9 +1,12 @@
 /* eslint-disable import/no-unresolved */
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const routes = require('./routes/index');
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.set('views', '../public/views');
 app.engine('html', require('ejs').renderFile);

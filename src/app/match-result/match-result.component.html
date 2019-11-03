@@ -1,42 +1,57 @@
 <div class="mr-container">
-    <div class="row">
-        <div class="col-lg-6">
-            <label>First player</label>
-            <ng-select [items]="users"
-                    bindLabel="name"
-                    placeholder="Select player">
-            </ng-select>
-        </div>
-        <div class="col-lg-6">
-            <label>Second player</label>
-            <ng-select [items]="users"
-                    bindLabel="name"
-                    placeholder="Select player">
-            </ng-select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <label>Category</label>
-            <ng-select [items]="categories"
-                    bindLabel="type"
-                    placeholder="Select category">
-            </ng-select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="btn-group match-result-label-container">
-                <label class="btn btn-primary match-result-label" btnCheckbox tabindex="0" role="button">First player win</label>
-                <label class="btn btn-primary match-result-label" btnCheckbox tabindex="0" role="button">Second player win</label>
+    <form [formGroup]="matchResultForm"
+          (ngSubmit)="addResult(matchResultForm.value)"
+          method="POST">
+        <div class="row">
+            <div class="col-lg-6">
+                <label>First player</label>
+                <ng-select [items]="users"
+                        bindLabel="name"
+                        placeholder="Select player"
+                        formControlName="firstPlayer"
+                        name="firstPlayer">
+                </ng-select>
+            </div>
+            <div class="col-lg-6">
+                <label>Second player</label>
+                <ng-select [items]="users"
+                        bindLabel="name"
+                        placeholder="Select player"
+                        formControlName="secondPlayer">
+                </ng-select>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <button class="btn btn-success btn-md" >
-                Submit
-            </button>
+        <div class="row">
+            <div class="col-lg-12">
+                <label>Category</label>
+                <ng-select [items]="categories"
+                        bindLabel="type"
+                        placeholder="Select category"
+                        formControlName="category">
+                </ng-select>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="match-result-radio-container">
+                    <div class="toggle">
+                        <input formControlName="winner" name="winner" value="first" id="firstPlayerInput" class="toggle-left" type="radio">
+                        <label for="firstPlayerInput" class="btn">First player won</label>
+                    </div>
+                    <div class="toggle">
+                        <input formControlName="winner" name="winner" value="second" id="secondPlayerInput" class="toggle-right" type="radio">
+                        <label for="secondPlayerInput" class="btn">Second player won</label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <button type="submit" class="submit-match-result btn btn-success btn-md" >
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
